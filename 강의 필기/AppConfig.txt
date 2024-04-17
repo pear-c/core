@@ -1,0 +1,23 @@
+■ AppConfig
+앞서 DIP 의존 문제가 됐었던 방식에서 AppConfig 를 통해
+애플리케이션에 실제 동작에 필요한 구현 객체를 생성한다 !!
+
+-> 생성자를 통해서 주입한다.
+return new MemberServiceImpl(new MemoryMemberRepository());
+
+- 클라이언트인 memberServiceImpl 입장에서 보면 의존관계를 마치 외부에서 주입해주는 것 같다고 해서
+DI(Dependency Injection) 우리말로 '의존 관계 주입' 또는 의존성 주입이라 한다.
+
+Appconfig 를 통해 각각의 인터페이스의 구현을 완료하고,
+
+
+
+* Test의 경우
+MemberService memberService; 로 선언만 해준 뒤
+
+@BeforeEach
+public void beforeEach(){
+	AppConfig appConfig = new AppConfig();
+	memberService = appConfig.memberService();
+}
+를 통해 구현한다.

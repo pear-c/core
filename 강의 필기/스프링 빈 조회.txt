@@ -1,0 +1,4 @@
+■ 스프링 빈 조회
+
+- ac.getBean(빈이름, 타입)
+- ac.getBean(타입)
